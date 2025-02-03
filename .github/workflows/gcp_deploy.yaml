@@ -27,7 +27,9 @@ jobs:
 
       - name: Build and Push Container
         run: |
-          gcloud builds submit --tag gcr.io/$PROJECT_ID/$SERVICE_NAME --quiet --suppress-logs
+          gcloud builds submit \
+            --tag gcr.io/$PROJECT_ID/$SERVICE_NAME \
+            --logging=CLOUD_LOGGING_ONLY --quiet
 
       - name: Deploy to Cloud Run
         run: |
