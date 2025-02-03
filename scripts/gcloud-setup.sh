@@ -35,5 +35,10 @@ done
 gcloud iam service-accounts keys create ga_key.json \
   --iam-account="$SERVICE_ACCOUNT@$PROJECT_ID.iam.gserviceaccount.com"
 
+gcloud projects get-iam-policy $PROJECT_ID \
+  --flatten="bindings[].members" \
+  --filter="bindings.members=serviceAccount:$SERVICE_ACCOUNT@$PROJECT_ID.iam.gserviceaccount.com" \
+  --format="table(bindings.role)"
+
 gh variable set GCP_PROJECT_ID -b $PROJECT_ID
 gh secret set GCP_SA_KEY -a actions < ga_key.json
