@@ -43,3 +43,4 @@ dist-ssr
 
 ## --> ELSE ADD if NOT using yarn's zero-install:
 .pnp.*
+ga_key.json
