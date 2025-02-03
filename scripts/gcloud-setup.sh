@@ -23,6 +23,7 @@ declare -a ROLES=(
   "cloudbuild.builds.editor"   # Required for Cloud Build
   "logging.logWriter"
   "logging.viewer"
+  "cloudbuild.builds.viewer"
 )
 
 for role in "${ROLES[@]}"; do
