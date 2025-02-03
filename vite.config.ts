@@ -115,7 +115,7 @@ export default defineConfig({
           },
           { name: 'Playfair Display SC' },
           { name: 'Source Code Pro' },
-          { name: 'Bungee' },
+          { name: 'Bungee' }
         ]
       }
     }),
