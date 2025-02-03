@@ -21,7 +21,9 @@ declare -a ROLES=(
   "artifactregistry.admin"
   "cloudbuild.builds.builder"
   "cloudbuild.builds.editor"   # Required for Cloud Build
-  "logging.logWriter" )
+  "logging.logWriter"
+  "logging.viewer"
+)
 
 for role in "${ROLES[@]}"; do
   gcloud projects add-iam-policy-binding $PROJECT_ID \
