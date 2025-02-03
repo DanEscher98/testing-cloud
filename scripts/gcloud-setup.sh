@@ -14,7 +14,15 @@ done
  
 gcloud iam service-accounts create $SERVICE_ACCOUNT
 
-declare -a ROLES=("run.admin" "storage.admin" "iam.serviceAccountUser" "artifactregistry.admin" "cloudbuild.builds.builder")
+declare -a ROLES=(
+  "run.admin"
+  "storage.admin"
+  "iam.serviceAccountUser"
+  "artifactregistry.admin"
+  "cloudbuild.builds.builder"
+  "cloudbuild.builds.editor"   # Required for Cloud Build
+  "logging.logWriter" )
+
 for role in "${ROLES[@]}"; do
   gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member="serviceAccount:$SERVICE_ACCOUNT@$PROJECT_ID.iam.gserviceaccount.com" \
